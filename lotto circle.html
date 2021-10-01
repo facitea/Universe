@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title">종현이의 놀이터</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #a, #b, #c, #d, #e, #f{
+        background-color:#86ef9d;
+        width:200px;
+        height:200px;
+        border-radius:200px;
+        text-align:center;
+        margin:0 auto;
+        font-size:100px;
+        vertical-align:middle;
+        line-height:180px;
+        float: left;
+        }
+        #button1 {font-size:50px; padding:0px 0px}
+    </style>
+</head>
+<body>
+    <h1><a href="index.html">종현이의 놀이터</a></h1>
+
+    <div id="grid">
+        <ol>
+            <li> <a href="1.html">로또 추첨기</a></li>
+            <li> <a href="2.html">개발중</a></li>
+            <li> <a href="3.html">개발중</a></li>
+        </ol>
+
+    <div id="article">
+        <h2>로또 추첨기</h2>
+        <div id="button">
+            <button id="button1" onclick="button1_click();">번호 생성</button> 
+        </div>
+    
+        <p>
+    
+        <div id="lottoNums">
+            <div id="a">a</div>
+            <div id="b">b</div>
+            <div id="c">c</div>
+            <div id="d">d</div>
+            <div id="e">e</div>
+            <div id="f">f</div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function button1_click() {
+	        location.reload();
+        }
+
+        var lotto = new Array();
+        
+        for (i=1; i<46; i++){
+            lotto.push(i);
+        }
+        
+        var pick = new Array();
+
+        while(pick.length < 6){
+	        var picknum = lotto.splice(Math.floor(Math.random() * lotto.length),1)[0]
+	        pick.push(picknum)
+        }
+
+        pick.sort(function(a, b) {
+            return a - b;
+        });
+        
+        document.getElementById("a").innerHTML=pick[0];
+        document.getElementById("b").innerHTML=pick[1];
+        document.getElementById("c").innerHTML=pick[2];
+        document.getElementById("d").innerHTML=pick[3];
+        document.getElementById("e").innerHTML=pick[4];
+        document.getElementById("f").innerHTML=pick[5];
+
+    </script>
+</body>
+</html>
